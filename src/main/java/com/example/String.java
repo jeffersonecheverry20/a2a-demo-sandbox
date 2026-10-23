@@ -1,9 +1,6 @@
 package com.example;
 
-import java.util.Arrays;
-import java.util.regex.Pattern;
-
-public class StringUtil {
+public class StringHelper {
     public static boolean isPalindrome(String input) {
         String filtered = input.toLowerCase().replaceAll("\\W+", "");
         int i = 0;
