@@ -1,5 +1,10 @@
 public class Fibonacci {
 
+    /**
+     * Computes the n-th Fibonacci number iteratively. Returns -1 for negative n.
+     * @param n the position in the Fibonacci sequence
+     * @return the n-th Fibonacci number or -1 if n is negative
+     */
     public static int fibonacci(int n) {
         if (n < 0) {
             return -1;
@@ -22,7 +27,7 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         System.out.println(fibonacci(10)); // 55
-        System.out.println(fibonacci(-1)); // -1
+        System.out.println(fibonacci(-1)); // -1, n < 0, invalid input
         System.out.println(fibonacci(0));  // 0
         System.out.println(fibonacci(1));  // 1
         System.out.println(fibonacci(15)); // 610
