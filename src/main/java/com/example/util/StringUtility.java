@@ -5,18 +5,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StringUtility {
-    public static boolean isPalindrome(String input) {
+    private static String cleanInput(String input) {
+        return Arrays.stream(input.toLowerCase().split(""))
+                .filter(c -> !isPunctuation(c) && !Character.isWhitespace(c))
+                .collect(Collectors.joining());
+    }
+
+    private static boolean isPalindrome(String input) {
         if (input == null) {
             return false;
         }
         String cleanedInput = cleanInput(input);
         return cleanedInput.equals(reverse(cleanedInput));
-    }
-
-    private static String cleanInput(String input) {
-        return Arrays.stream(input.toLowerCase().split(""))
-                .filter(c -> !isPunctuation(c))
-                .collect(Collectors.joining());
     }
 
     private static boolean isPunctuation(char c) {
