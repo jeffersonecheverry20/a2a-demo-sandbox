@@ -1,5 +1,8 @@
 package com.example.textprocessing;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class TextAnalyzer {
 
     public static int countWords(String text) {
@@ -7,19 +10,9 @@ public class TextAnalyzer {
             return 0;
         }
 
-        int wordCount = 0;
-        boolean inWord = false;
-        for (int i = 0; i < text.length(); i++) {
-            if (text.charAt(i) == ' ' && inWord) {
-                inWord = false;
-            } else if (text.charAt(i) != ' ') {
-                inWord = true;
-                if (i > 0 && text.charAt(i - 1) == ' ') {
-                    continue;
-                }
-                wordCount++;
-            }
-        }
-        return wordCount;
+        return Arrays.stream(text.trim().split(" "))
+                .filter(s -> !s.isEmpty())
+                .collect(Collectors.toList())
+                .size();
     }
 }
