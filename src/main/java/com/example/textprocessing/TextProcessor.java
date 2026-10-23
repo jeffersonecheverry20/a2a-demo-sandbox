@@ -1,20 +1,12 @@
 package com.example.textprocessing;
 
+import java.util.regex.Pattern;
+
 public class TextProcessor {
     public static int countWords(String input) {
         if (input == null || input.isEmpty()) {
             return 0;
         }
-        int wordCount = 0;
-        boolean inWord = false;
-        for (char c : input.toCharArray()) {
-            if (Character.isWhitespace(c)) {
-                inWord = false;
-            } else if (!inWord) {
-                inWord = true;
-                wordCount++;
-            }
-        }
-        return wordCount;
+        return Pattern.compile("\\w+").matcher(input).results().sum(matchResult -> 1);
     }
 }
