@@ -12,11 +12,13 @@ public class Converter {
     /**
      * Example test to verify the celsiusToFahrenheit function.
      */
-    // public static void main(String[] args) {
-    //     double result = celsiusToFahrenheit(0);
-    //     if (result == 32.0) {
-    //         System.out.println("Test passed");
-    //     } else {
-    //         System.out.println("Test failed");
-    //     }
-    // }
+    public static void main(String[] args) {
+        double result = celsiusToFahrenheit(0);
+        if (result == 32.0) {
+            System.out.println("Test passed");
+        } else {
+            System.out.println("Test failed");
+        }
+    }
+
+}
