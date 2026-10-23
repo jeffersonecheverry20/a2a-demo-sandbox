@@ -10,23 +10,32 @@ public class EmailValidationService {
             return false;
         }
 
-        int dotIndex = email.indexOf('.', atSignIndex);
-        if (dotIndex == -1 || dotIndex < atSignIndex + 2) {
+        String domain = email.substring(atSignIndex + 1);
+        if (domain.isEmpty()) {
+            return false;
+        }
+
+        int dotIndex = email.indexOf('.', atSignIndex + 1);
+        if (dotIndex == -1) {
             return false;
         }
 
         String username = email.substring(0, atSignIndex);
-        String domain = email.substring(atSignIndex + 1, dotIndex);
+        String domainName = email.substring(atSignIndex + 1, dotIndex);
         String extension = email.substring(dotIndex + 1);
 
-        if (username.isEmpty() || domain.isEmpty() || extension.isEmpty()) {
+        if (username.isEmpty() || domainName.isEmpty() || extension.isEmpty()) {
             return false;
         }
 
         for (char c : username.toCharArray()) {
-            if (!Character.isLetterOrDigit(c) && c != '.' && c != '-' && c != '_' && c != '!') {
+            if (!Character.isLetterOrDigit(c) && c != '.' && c != '-' && c != '_') {
                 return false;
             }
+        }
+
+        if (domainName.length() < 2 || extension.length() < 2) {
+            return false;
         }
 
         return true;
