@@ -1,16 +1,17 @@
 package com.example.web;
 
-import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import javax.servlet.http.HttpServletResponse;
 
-@RestController
-public class HelloController {
+@WebServlet(urlPatterns = "/hello")
+public class HelloController extends HttpServlet {
 
-    @GetMapping(value = "/hello")
-    public String helloWorld(HttpServletRequest request, HttpServletResponse response) {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setStatus(HttpServletResponse.SC_OK);
-        return "Hola Mundo";
+        response.getWriter().write("Hola Mundo");
     }
 }
