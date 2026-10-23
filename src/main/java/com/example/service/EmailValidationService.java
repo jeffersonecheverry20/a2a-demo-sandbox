@@ -6,8 +6,12 @@ public class EmailValidationService {
         }
 
         int atSignIndex = email.indexOf('@');
-        int dotIndex = email.indexOf('.');
-        if (atSignIndex == -1 || dotIndex == -1) {
+        if (atSignIndex == -1) {
+            return false;
+        }
+
+        int dotIndex = email.indexOf('.', atSignIndex);
+        if (dotIndex == -1 || dotIndex < atSignIndex + 2) {
             return false;
         }
 
@@ -20,7 +24,7 @@ public class EmailValidationService {
         }
 
         for (char c : username.toCharArray()) {
-            if (!Character.isLetterOrDigit(c) && c != '.' && c != '-' && c != '_') {
+            if (!Character.isLetterOrDigit(c) && c != '.' && c != '-' && c != '_' && c != '!') {
                 return false;
             }
         }
