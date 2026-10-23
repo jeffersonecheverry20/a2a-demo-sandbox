@@ -1,7 +1,7 @@
 package com.example;
 
 public class StringHelper {
-    public static boolean isPalindrome(String str) {
+    public static boolean isAlphanumericPalindrome(String str) {
         if (str == null || str.length() <= 1) {
             return true;
         }
