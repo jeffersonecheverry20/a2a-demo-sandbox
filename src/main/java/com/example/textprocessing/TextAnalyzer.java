@@ -10,7 +10,7 @@ public class TextAnalyzer {
             return 0;
         }
 
-        return Arrays.stream(text.trim().split(" "))
+        return Arrays.stream(text.trim().split("\\s+"))
                 .filter(s -> !s.isEmpty())
                 .collect(Collectors.toList())
                 .size();
