@@ -1,6 +1,9 @@
 public class MyClass {
-    public static int max(int[] valores) {
-        if (valores == null || valores.length == 0) {
+    public static int findMax(int[] valores) {
+        if (valores == null) {
+            throw new IllegalArgumentException("Array cannot be null for max value calculation.");
+        }
+        if (valores.length == 0) {
             throw new IllegalArgumentException("Array cannot be empty for max value calculation.");
         }
         int max = valores[0];
