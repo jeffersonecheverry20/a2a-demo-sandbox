@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Controller for handling HTTP requests to the '/hello' path.
+ * Controller for handling HTTP GET requests to the '/hello' path, returning a 'Hello World' message.
  */
 @Path="/hello"
 public class HelloController {
